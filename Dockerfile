@@ -26,7 +26,7 @@ EXPOSE 22
 RUN echo '#!/bin/sh' > /start.sh && \
     echo 'IP=$(ip a | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" | grep -v "127.0.0.1" | head -n 1)' >> /start.sh && \
     echo 'echo "SSH server is starting. Container IP address: $IP"' >> /start.sh && \
-    echo 'echo "You can now connect using ssh '"$USERNAME"'@$IP"' >> /start.sh && \
+    echo 'echo "You can now connect using ssh '"$USERNAME"'@$IP with password: '"$PASSWORD"'" >> /start.sh && \
     echo '/usr/sbin/sshd -D' >> /start.sh && \
     chmod +x /start.sh
 
